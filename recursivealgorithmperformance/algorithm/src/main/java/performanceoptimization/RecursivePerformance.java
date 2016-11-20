@@ -1,6 +1,7 @@
 package performanceoptimization;
 
-import java.util.LinkedHashMap;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class RecursivePerformance {
@@ -9,7 +10,7 @@ public class RecursivePerformance {
 	private static RecursivePerformance instance;
 	
 	static{
-		initiatedValue = new LinkedHashMap<Integer, Double>();
+		initiatedValue = new HashMap<Integer, Double>();
 		initiatedValue.put(0, new Double(1));
 		initiatedValue.put(1, new Double(1));
 		instance = new RecursivePerformance();
@@ -61,6 +62,8 @@ public class RecursivePerformance {
 	}
 
 	public static void main(String[] args) {
+		long startTime = new Date().getTime();
+		
 		RecursivePerformance rpf = RecursivePerformance.getInstance();
 		System.out.println("Value of 10: " + rpf.x(10));
 		System.out.println("Value of 54: " + rpf.x(54));
@@ -69,6 +72,9 @@ public class RecursivePerformance {
 		System.out.println("Value of 900: " + rpf.x(900));
 		RecursivePerformance rpf2 = RecursivePerformance.getInstance();
 		System.out.println("Value of 500: " + rpf2.x(500));
+		
+		long endTime = new Date().getTime();
+		System.out.println("@@@@@@@@@@@@@@@@@Spent time: " + (endTime - startTime));
 		
 	}
 

@@ -1,10 +1,8 @@
 package performanceoptimization;
 
-import java.util.LinkedHashMap;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentSkipListMap;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class RecursivePerformanceThreadSafe {
 	
@@ -12,7 +10,7 @@ public class RecursivePerformanceThreadSafe {
 	private static RecursivePerformanceThreadSafe instance;
 	
 	static{
-		initiatedValue = new ConcurrentSkipListMap<Integer, Double>();
+		initiatedValue = new ConcurrentHashMap<Integer, Double>();
 		initiatedValue.put(0, new Double(1));
 		initiatedValue.put(1, new Double(1));
 	}
@@ -71,13 +69,18 @@ public class RecursivePerformanceThreadSafe {
 	}
 
 	public static void main(String[] args) {
+		long startTime = new Date().getTime();
 		RecursivePerformanceThreadSafe rpf = RecursivePerformanceThreadSafe.getInstance();
 		System.out.println("Value of 10: " + rpf.x(10));
 		System.out.println("Value of 54: " + rpf.x(54));
 		System.out.println("Value of 100: " + rpf.x(100));
 		System.out.println("Value of 1000: " + rpf.x(1000));
 		System.out.println("Value of 900: " + rpf.x(900));
+		RecursivePerformance rpf2 = RecursivePerformance.getInstance();
+		System.out.println("Value of 500: " + rpf2.x(500));
 		
+		long endTime = new Date().getTime();
+		System.out.println("@@@@@@@@@@@@@@@@@Spent time: " + (endTime - startTime));
 	}
 
 }
