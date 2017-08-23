@@ -1,4 +1,8 @@
-# Vtestangular2fe
+# Integrate with backend server
+Modify proxy.conf.json with backend server host and port
+Run 'ng serve --proxy-config=proxy.conf.json' to start front end server with proxy configuration to by pass APIs from backend server 
+
+# Angular 2 - Front end
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
 
