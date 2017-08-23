@@ -11,7 +11,7 @@ public class RecursivePerformance {
 	
 	static{
 		initiatedValue = new HashMap<Integer, Double>();
-		initiatedValue.put(0, new Double(1));
+		initiatedValue.put(0, new Double(0));
 		initiatedValue.put(1, new Double(1));
 		instance = new RecursivePerformance();
 	}
